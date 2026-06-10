@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import logoLightAsset from "@/assets/bayan-logo-light.jpg.asset.json";
-import logoDarkAsset from "@/assets/bayan-logo-dark.jpg.asset.json";
+import logoLightAsset from "@/assets/bayan-logo-light.png.asset.json";
+import logoDarkAsset from "@/assets/bayan-logo-dark.png.asset.json";
 
 interface BayanLogoProps {
   className?: string;
