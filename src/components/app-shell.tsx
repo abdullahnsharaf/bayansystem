@@ -128,7 +128,7 @@ export function AppShell() {
         <SidebarNav />
       </aside>
 
-      <header className="fixed inset-x-0 top-0 z-20 h-16 border-b bg-card/96 backdrop-blur-sm lg:left-60">
+      <header className="fixed inset-x-0 top-0 z-20 h-16 border-b bg-card lg:left-60">
         <div className="flex h-full items-center justify-between gap-4 px-4 lg:px-8">
           <div className="flex items-center gap-3">
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
