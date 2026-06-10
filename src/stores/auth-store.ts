@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 import type { AuthUser } from "@/lib/types";
 
@@ -16,9 +17,14 @@ const defaultUser: AuthUser = {
   bankName: "Maybank Islamic",
 };
 
-export const useAuthStore = create<AuthStore>((set) => ({
-  isAuthenticated: false,
-  user: null,
-  login: () => set({ isAuthenticated: true, user: defaultUser }),
-  logout: () => set({ isAuthenticated: false, user: null }),
-}));
+export const useAuthStore = create<AuthStore>()(
+  persist(
+    (set) => ({
+      isAuthenticated: false,
+      user: null,
+      login: () => set({ isAuthenticated: true, user: defaultUser }),
+      logout: () => set({ isAuthenticated: false, user: null }),
+    }),
+    { name: "bayan-auth" },
+  ),
+);
