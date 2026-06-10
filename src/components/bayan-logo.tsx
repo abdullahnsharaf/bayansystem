@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import logoLight from "@/assets/bayan-logo-light.png";
-import logoDark from "@/assets/bayan-logo-dark.png";
+import logoLightAsset from "@/assets/bayan-logo-light.jpg.asset.json";
+import logoDarkAsset from "@/assets/bayan-logo-dark.jpg.asset.json";
 
 interface BayanLogoProps {
   className?: string;
@@ -11,14 +11,17 @@ interface BayanLogoProps {
 }
 
 export function BayanLogo({ className, inverse = false, compact = false, showTagline = true }: BayanLogoProps) {
-  const src = inverse ? logoDark : logoLight;
+  const src = inverse ? logoDarkAsset.url : logoLightAsset.url;
 
   return (
     <div className={cn("flex flex-col items-center", className)}>
       <img
         src={src}
         alt="BAYAN"
-        className={cn("h-24 w-auto select-none", compact && "h-20")}
+        className={cn(
+          "w-auto select-none rounded-md object-contain",
+          compact ? "h-20" : "h-24",
+        )}
         draggable={false}
       />
       {showTagline && (
