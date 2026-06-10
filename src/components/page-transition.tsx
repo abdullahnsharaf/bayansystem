@@ -1,14 +1,8 @@
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
 
+// Lightweight wrapper — heavy motion transitions hurt perceived perf on mobile.
+// Use CSS fade-in instead of framer-motion for route-level mounts.
 export function PageTransition({ children }: { children: ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="animate-in fade-in duration-200">{children}</div>;
 }
+
