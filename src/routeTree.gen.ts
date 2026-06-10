@@ -12,7 +12,16 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppShariahCouncilRouteImport } from './routes/_app.shariah-council'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppReportsRouteImport } from './routes/_app.reports'
+import { Route as AppHistoryRouteImport } from './routes/_app.history'
+import { Route as AppHelpSupportRouteImport } from './routes/_app.help-support'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppAssessmentProcessingRouteImport } from './routes/_app.assessment.processing'
+import { Route as AppAssessmentNewRouteImport } from './routes/_app.assessment.new'
+import { Route as AppAssessmentIdResultRouteImport } from './routes/_app.assessment.$id.result'
+import { Route as AppAssessmentIdAlternativeRouteImport } from './routes/_app.assessment.$id.alternative'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -28,21 +37,85 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppShariahCouncilRoute = AppShariahCouncilRouteImport.update({
+  id: '/shariah-council',
+  path: '/shariah-council',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHelpSupportRoute = AppHelpSupportRouteImport.update({
+  id: '/help-support',
+  path: '/help-support',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAssessmentProcessingRoute = AppAssessmentProcessingRouteImport.update({
+  id: '/assessment/processing',
+  path: '/assessment/processing',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssessmentNewRoute = AppAssessmentNewRouteImport.update({
+  id: '/assessment/new',
+  path: '/assessment/new',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssessmentIdResultRoute = AppAssessmentIdResultRouteImport.update({
+  id: '/assessment/$id/result',
+  path: '/assessment/$id/result',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssessmentIdAlternativeRoute =
+  AppAssessmentIdAlternativeRouteImport.update({
+    id: '/assessment/$id/alternative',
+    path: '/assessment/$id/alternative',
+    getParentRoute: () => AppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
+  '/help-support': typeof AppHelpSupportRoute
+  '/history': typeof AppHistoryRoute
+  '/reports': typeof AppReportsRoute
+  '/settings': typeof AppSettingsRoute
+  '/shariah-council': typeof AppShariahCouncilRoute
+  '/assessment/new': typeof AppAssessmentNewRoute
+  '/assessment/processing': typeof AppAssessmentProcessingRoute
+  '/assessment/$id/alternative': typeof AppAssessmentIdAlternativeRoute
+  '/assessment/$id/result': typeof AppAssessmentIdResultRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
+  '/help-support': typeof AppHelpSupportRoute
+  '/history': typeof AppHistoryRoute
+  '/reports': typeof AppReportsRoute
+  '/settings': typeof AppSettingsRoute
+  '/shariah-council': typeof AppShariahCouncilRoute
+  '/assessment/new': typeof AppAssessmentNewRoute
+  '/assessment/processing': typeof AppAssessmentProcessingRoute
+  '/assessment/$id/alternative': typeof AppAssessmentIdAlternativeRoute
+  '/assessment/$id/result': typeof AppAssessmentIdResultRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -50,13 +123,60 @@ export interface FileRoutesById {
   '/_app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/help-support': typeof AppHelpSupportRoute
+  '/_app/history': typeof AppHistoryRoute
+  '/_app/reports': typeof AppReportsRoute
+  '/_app/settings': typeof AppSettingsRoute
+  '/_app/shariah-council': typeof AppShariahCouncilRoute
+  '/_app/assessment/new': typeof AppAssessmentNewRoute
+  '/_app/assessment/processing': typeof AppAssessmentProcessingRoute
+  '/_app/assessment/$id/alternative': typeof AppAssessmentIdAlternativeRoute
+  '/_app/assessment/$id/result': typeof AppAssessmentIdResultRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/dashboard'
+    | '/help-support'
+    | '/history'
+    | '/reports'
+    | '/settings'
+    | '/shariah-council'
+    | '/assessment/new'
+    | '/assessment/processing'
+    | '/assessment/$id/alternative'
+    | '/assessment/$id/result'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard'
-  id: '__root__' | '/' | '/_app' | '/login' | '/_app/dashboard'
+  to:
+    | '/'
+    | '/login'
+    | '/dashboard'
+    | '/help-support'
+    | '/history'
+    | '/reports'
+    | '/settings'
+    | '/shariah-council'
+    | '/assessment/new'
+    | '/assessment/processing'
+    | '/assessment/$id/alternative'
+    | '/assessment/$id/result'
+  id:
+    | '__root__'
+    | '/'
+    | '/_app'
+    | '/login'
+    | '/_app/dashboard'
+    | '/_app/help-support'
+    | '/_app/history'
+    | '/_app/reports'
+    | '/_app/settings'
+    | '/_app/shariah-council'
+    | '/_app/assessment/new'
+    | '/_app/assessment/processing'
+    | '/_app/assessment/$id/alternative'
+    | '/_app/assessment/$id/result'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -88,6 +208,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/shariah-council': {
+      id: '/_app/shariah-council'
+      path: '/shariah-council'
+      fullPath: '/shariah-council'
+      preLoaderRoute: typeof AppShariahCouncilRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/reports': {
+      id: '/_app/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/history': {
+      id: '/_app/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/help-support': {
+      id: '/_app/help-support'
+      path: '/help-support'
+      fullPath: '/help-support'
+      preLoaderRoute: typeof AppHelpSupportRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
@@ -95,15 +250,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/assessment/processing': {
+      id: '/_app/assessment/processing'
+      path: '/assessment/processing'
+      fullPath: '/assessment/processing'
+      preLoaderRoute: typeof AppAssessmentProcessingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/assessment/new': {
+      id: '/_app/assessment/new'
+      path: '/assessment/new'
+      fullPath: '/assessment/new'
+      preLoaderRoute: typeof AppAssessmentNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/assessment/$id/result': {
+      id: '/_app/assessment/$id/result'
+      path: '/assessment/$id/result'
+      fullPath: '/assessment/$id/result'
+      preLoaderRoute: typeof AppAssessmentIdResultRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/assessment/$id/alternative': {
+      id: '/_app/assessment/$id/alternative'
+      path: '/assessment/$id/alternative'
+      fullPath: '/assessment/$id/alternative'
+      preLoaderRoute: typeof AppAssessmentIdAlternativeRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
+  AppHelpSupportRoute: typeof AppHelpSupportRoute
+  AppHistoryRoute: typeof AppHistoryRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppShariahCouncilRoute: typeof AppShariahCouncilRoute
+  AppAssessmentNewRoute: typeof AppAssessmentNewRoute
+  AppAssessmentProcessingRoute: typeof AppAssessmentProcessingRoute
+  AppAssessmentIdAlternativeRoute: typeof AppAssessmentIdAlternativeRoute
+  AppAssessmentIdResultRoute: typeof AppAssessmentIdResultRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
+  AppHelpSupportRoute: AppHelpSupportRoute,
+  AppHistoryRoute: AppHistoryRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppShariahCouncilRoute: AppShariahCouncilRoute,
+  AppAssessmentNewRoute: AppAssessmentNewRoute,
+  AppAssessmentProcessingRoute: AppAssessmentProcessingRoute,
+  AppAssessmentIdAlternativeRoute: AppAssessmentIdAlternativeRoute,
+  AppAssessmentIdResultRoute: AppAssessmentIdResultRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -116,13 +317,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
