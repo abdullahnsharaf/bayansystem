@@ -78,23 +78,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BAYAN — Cognitive credit assessment" },
+      { title: "BAYAN" },
       {
         name: "description",
         content:
           "BAYAN is a cognitive credit assessment platform for Islamic banks, combining explainable credit risk and Shariah compliance review.",
       },
-      { property: "og:title", content: "BAYAN — Cognitive credit assessment" },
+      { property: "og:title", content: "BAYAN" },
       {
         property: "og:description",
         content:
           "Executive-ready BAYAN demo for Islamic bank officers assessing underserved households with explainable risk and Shariah screening.",
       },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "BAYAN" },
+      { name: "description", content: "BAYAN is a B2B SaaS web app for Malaysian Islamic banks, assessing credit applications for underserved households." },
+      { property: "og:description", content: "BAYAN is a B2B SaaS web app for Malaysian Islamic banks, assessing credit applications for underserved households." },
+      { name: "twitter:description", content: "BAYAN is a B2B SaaS web app for Malaysian Islamic banks, assessing credit applications for underserved households." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5747ebe4-d98c-4380-9a8c-1c8b191124e2/id-preview-35469079--712c8e88-ae79-45ef-b0d3-4c7618229492.lovable.app-1781106162460.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5747ebe4-d98c-4380-9a8c-1c8b191124e2/id-preview-35469079--712c8e88-ae79-45ef-b0d3-4c7618229492.lovable.app-1781106162460.png" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
