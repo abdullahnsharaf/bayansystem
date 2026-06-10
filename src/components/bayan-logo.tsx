@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import logoLightAsset from "@/assets/bayan-logo-light.png.asset.json";
-import logoDarkAsset from "@/assets/bayan-logo-dark.png.asset.json";
+import logoLightAsset from "@/assets/bayan-logo-light.jpg.asset.json";
+import logoDarkAsset from "@/assets/bayan-logo-dark.jpg.asset.json";
 
 interface BayanLogoProps {
   className?: string;
@@ -18,7 +18,7 @@ export function BayanLogo({ className, inverse = false, compact = false, showTag
       <img
         src={src}
         alt="BAYAN"
-        className={cn("w-auto select-none object-contain", compact ? "h-12" : "h-16")}
+        className={cn("w-auto select-none object-contain", compact ? "h-20" : "h-24")}
         draggable={false}
       />
       {showTagline && (
