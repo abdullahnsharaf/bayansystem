@@ -145,8 +145,9 @@ export function AppShell() {
                 <SidebarNav mobile onNavigate={() => setMobileOpen(false)} />
               </SheetContent>
             </Sheet>
-            <div>
-              <p className="display-heading text-2xl leading-none text-bayan-green-deep">{pageTitle}</p>
+            <div className="hidden lg:block">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">BAYAN</p>
+              <p className="text-sm font-medium leading-tight text-bayan-green-deep">{pageTitle}</p>
             </div>
           </div>
 
