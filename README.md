@@ -16,6 +16,9 @@ Vite + TypeScript + Tailwind CSS + shadcn/ui. Use mock data
 throughout — no backend required. Every interaction must work; no 
 dead buttons.
 
+=================================================================
+[Watch the BAYAN Overview Video[]((https://drive.google.com/file/d/1rGpdMg0liamo7gTQINblEZfT6jaQuqSW/view?usp=sharing))
+
 ==================================================================
 1. PRODUCT CONTEXT (READ THIS FIRST)
 ==================================================================
