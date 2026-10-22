@@ -9,52 +9,37 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AppShariahCouncilRouteImport } from './routes/_app.shariah-council'
-import { Route as AppSettingsRouteImport } from './routes/_app.settings'
-import { Route as AppReportsRouteImport } from './routes/_app.reports'
-import { Route as AppHistoryRouteImport } from './routes/_app.history'
-import { Route as AppHelpSupportRouteImport } from './routes/_app.help-support'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
-import { Route as AppAssessmentProcessingRouteImport } from './routes/_app.assessment.processing'
+import { Route as AppHelpSupportRouteImport } from './routes/_app.help-support'
+import { Route as AppHistoryRouteImport } from './routes/_app.history'
+import { Route as AppReportsRouteImport } from './routes/_app.reports'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppShariahCouncilRouteImport } from './routes/_app.shariah-council'
 import { Route as AppAssessmentNewRouteImport } from './routes/_app.assessment.new'
-import { Route as AppAssessmentIdResultRouteImport } from './routes/_app.assessment.$id.result'
+import { Route as AppAssessmentProcessingRouteImport } from './routes/_app.assessment.processing'
 import { Route as AppAssessmentIdAlternativeRouteImport } from './routes/_app.assessment.$id.alternative'
+import { Route as AppAssessmentIdResultRouteImport } from './routes/_app.assessment.$id.result'
 
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppShariahCouncilRoute = AppShariahCouncilRouteImport.update({
-  id: '/shariah-council',
-  path: '/shariah-council',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppSettingsRoute = AppSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppReportsRoute = AppReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppHistoryRoute = AppHistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
 const AppHelpSupportRoute = AppHelpSupportRouteImport.update({
@@ -62,14 +47,24 @@ const AppHelpSupportRoute = AppHelpSupportRouteImport.update({
   path: '/help-support',
   getParentRoute: () => AppRoute,
 } as any)
-const AppDashboardRoute = AppDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
   getParentRoute: () => AppRoute,
 } as any)
-const AppAssessmentProcessingRoute = AppAssessmentProcessingRouteImport.update({
-  id: '/assessment/processing',
-  path: '/assessment/processing',
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShariahCouncilRoute = AppShariahCouncilRouteImport.update({
+  id: '/shariah-council',
+  path: '/shariah-council',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAssessmentNewRoute = AppAssessmentNewRouteImport.update({
@@ -77,9 +72,9 @@ const AppAssessmentNewRoute = AppAssessmentNewRouteImport.update({
   path: '/assessment/new',
   getParentRoute: () => AppRoute,
 } as any)
-const AppAssessmentIdResultRoute = AppAssessmentIdResultRouteImport.update({
-  id: '/assessment/$id/result',
-  path: '/assessment/$id/result',
+const AppAssessmentProcessingRoute = AppAssessmentProcessingRouteImport.update({
+  id: '/assessment/processing',
+  path: '/assessment/processing',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAssessmentIdAlternativeRoute =
@@ -88,6 +83,11 @@ const AppAssessmentIdAlternativeRoute =
     path: '/assessment/$id/alternative',
     getParentRoute: () => AppRoute,
   } as any)
+const AppAssessmentIdResultRoute = AppAssessmentIdResultRouteImport.update({
+  id: '/assessment/$id/result',
+  path: '/assessment/$id/result',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -187,11 +187,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
@@ -201,39 +201,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_app/shariah-council': {
-      id: '/_app/shariah-council'
-      path: '/shariah-council'
-      fullPath: '/shariah-council'
-      preLoaderRoute: typeof AppShariahCouncilRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/settings': {
-      id: '/_app/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof AppSettingsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/reports': {
-      id: '/_app/reports'
-      path: '/reports'
-      fullPath: '/reports'
-      preLoaderRoute: typeof AppReportsRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/history': {
-      id: '/_app/history'
-      path: '/history'
-      fullPath: '/history'
-      preLoaderRoute: typeof AppHistoryRouteImport
+    '/_app/dashboard': {
+      id: '/_app/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/help-support': {
@@ -243,18 +222,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppHelpSupportRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/dashboard': {
-      id: '/_app/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AppDashboardRouteImport
+    '/_app/history': {
+      id: '/_app/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/assessment/processing': {
-      id: '/_app/assessment/processing'
-      path: '/assessment/processing'
-      fullPath: '/assessment/processing'
-      preLoaderRoute: typeof AppAssessmentProcessingRouteImport
+    '/_app/reports': {
+      id: '/_app/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/shariah-council': {
+      id: '/_app/shariah-council'
+      path: '/shariah-council'
+      fullPath: '/shariah-council'
+      preLoaderRoute: typeof AppShariahCouncilRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/assessment/new': {
@@ -264,11 +257,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAssessmentNewRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/assessment/$id/result': {
-      id: '/_app/assessment/$id/result'
-      path: '/assessment/$id/result'
-      fullPath: '/assessment/$id/result'
-      preLoaderRoute: typeof AppAssessmentIdResultRouteImport
+    '/_app/assessment/processing': {
+      id: '/_app/assessment/processing'
+      path: '/assessment/processing'
+      fullPath: '/assessment/processing'
+      preLoaderRoute: typeof AppAssessmentProcessingRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/assessment/$id/alternative': {
@@ -276,6 +269,13 @@ declare module '@tanstack/react-router' {
       path: '/assessment/$id/alternative'
       fullPath: '/assessment/$id/alternative'
       preLoaderRoute: typeof AppAssessmentIdAlternativeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/assessment/$id/result': {
+      id: '/_app/assessment/$id/result'
+      path: '/assessment/$id/result'
+      fullPath: '/assessment/$id/result'
+      preLoaderRoute: typeof AppAssessmentIdResultRouteImport
       parentRoute: typeof AppRoute
     }
   }
